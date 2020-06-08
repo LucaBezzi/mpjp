@@ -9,8 +9,13 @@ public class S03 {
      */
     public static String checkSign(int value) {
         // TODO
-        return "";
-    }
+    	if (value < 0) {
+    		return "negative";
+    	}else if (value >0) {
+    		return "positive";
+    	}else
+    		return "zero";
+    	}
 
     /**
      * Check if the parameter is odd
@@ -20,7 +25,10 @@ public class S03 {
      */
     public static boolean isOdd(int value) {
         // TODO
+    	if (value % 2 == 0) {
         return false;
+    }else
+    	return true;
     }
 
     /**
@@ -31,7 +39,43 @@ public class S03 {
      */
     public static String asWord(int value) {
         // TODO
-        return "";
+    	int result = value;
+
+     	switch (result) {
+     	case 0:
+     		return "zero";
+         case 1:
+             return "one";
+
+         case 2:
+             return "two";
+
+         case 3:
+             return "three";
+
+         case 4:
+             return "four";
+
+         case 5:
+             return "five";
+             
+         case 6:
+             return "six";
+             
+         case 7:
+             return "seven";
+             
+         case 8:
+             return "eight";
+             
+         case 9:
+             return "nine";
+             
+
+         default:
+             return "other";
+
+         }
     }
 
     /**
@@ -44,7 +88,18 @@ public class S03 {
      */
     public static char vote(double percentile) {
         // TODO
-        return 'F';
+    	if (percentile <= 50) {
+    		return 'F';
+    	}else if (percentile <= 60 && percentile >50 ) {
+    		return 'E';
+    	}else if (percentile <= 70 && percentile >60 ) {
+    		return 'D';
+    	}else if (percentile <= 80 && percentile >70 ) {
+    		return 'C';
+    	}else if (percentile <= 90 && percentile >80 ) {
+    		return 'B';
+    	}else 
+    		return 'A';
     }
 
     /**
@@ -55,7 +110,10 @@ public class S03 {
      */
     public static boolean isLeapYear(int year) {
         // TODO
-        return false;
+    	if ( ( ( year % 4 == 0 ) && ( year % 100 != 0 ) ) || ( year % 400 == 0 ) ) {
+            return true;
+        }else
+        	return false;
     }
 
     /**
@@ -68,9 +126,37 @@ public class S03 {
      */
     public static int[] sort(int a, int b, int c) {
         int[] result = new int[3];
-
         // TODO
-
-        return result;
+        if(a < b && a < c) {
+         	result[0] = a;
+         	if(b < c) {
+         		result[1] = b;
+         		result[2] = c;
+         	} else {
+         		result[1] = c;
+         		result[2] = b;
+         	}
+         }
+         if(b < c && b < a) {
+         	result[0] = b;
+         	if(a < c) {
+         		result[1] = a;
+         		result[2] = b;
+         	} else {
+         		result[1] = b;
+         		result[2] = c;
+         	}
+         }
+         if(c < a && c < b) {
+         	result[0] = c;
+         	if(a < b) {
+         		result[1] = a;
+         		result[2] = b;
+         	} else {
+         		result[1] = b;
+         		result[2] = a;
+         	}
+         }
+         return result;
     }
 }
